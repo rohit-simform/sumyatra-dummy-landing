@@ -83,6 +83,9 @@ $colors: (
             font-weight: 400;
             height: 90px;
             overflow: hidden;
+            @include breakpoint-down(md) {
+              height: 110px;
+            }
           }
           &:hover {
             box-shadow: 4px 4px 0px 0px #cdcdcd;
