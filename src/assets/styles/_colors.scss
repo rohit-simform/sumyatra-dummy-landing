@@ -1,0 +1,12 @@
+$colors: (
+  white: "255, 255, 255",
+  black: "2, 2, 2",
+  error: "255, 0, 0",
+);
+
+:root {
+  @each $color, $value in $colors {
+    --#{$color}-rgb: #{$value};
+    --#{$color}: rgb(#{$value});
+  }
+}

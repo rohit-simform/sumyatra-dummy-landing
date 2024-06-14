@@ -1,0 +1,55 @@
+$spacingValues: (0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 20, 24, 28, 32, 56, 72);
+
+@each $space in $spacingValues {
+  .p-#{$space} {
+    padding: #{$space}px;
+  }
+  .px-#{$space} {
+    padding-inline: #{$space}px;
+  }
+  .py-#{$space} {
+    padding-block: #{$space}px;
+  }
+  .pl-#{$space} {
+    padding-inline-start: #{$space}px;
+  }
+  .pr-#{$space} {
+    padding-inline-end: #{$space}px;
+  }
+  .pt-#{$space} {
+    padding-block-start: #{$space}px;
+  }
+  .pb-#{$space} {
+    padding-block-end: #{$space}px;
+  }
+  .m-#{$space} {
+    margin: #{$space}px;
+  }
+  .mx-#{$space} {
+    margin-inline: #{$space}px;
+  }
+  .my-#{$space} {
+    margin-block: #{$space}px;
+  }
+  .ml-#{$space} {
+    margin-inline-start: #{$space}px;
+  }
+  .mr-#{$space} {
+    margin-inline-end: #{$space}px;
+  }
+  .mt-#{$space} {
+    margin-block-start: #{$space}px;
+  }
+  .mb-#{$space} {
+    margin-block-end: #{$space}px;
+  }
+  .g-#{$space} {
+    gap: #{$space}px;
+  }
+  .gx-#{$space} {
+    column-gap: #{$space}px;
+  }
+  .gy-#{$space} {
+    row-gap: #{$space}px;
+  }
+}

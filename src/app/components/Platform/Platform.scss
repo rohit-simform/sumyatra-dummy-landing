@@ -1,0 +1,98 @@
+@use "/src/assets/styles/breakpoints" as *;
+$colors: (
+  "colorOne": #edfcf2,
+  "colorTwo": #faecea,
+  "colorThree": #e6f1fc,
+  "colorFour": #e6f1fc,
+  "colorFive": #fdf7e3,
+  "colorSix": #fcecf4,
+);
+
+.platformWrapper {
+  background-color: #ffffff;
+  padding: 64px 0;
+  .title {
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    text-align: center;
+    margin-bottom: 64px;
+    @include breakpoint-down(xs) {
+      font-size: 28px;
+      line-height: 40px;
+    }
+  }
+  .platformTiles {
+    display: grid;
+    grid-template-columns: repeat(3, 32.4%);
+    grid-gap: 1vw;
+    margin: 64px 0;
+    @include breakpoint-down(xl) {
+      grid-template-columns: repeat(3, 33%);
+    }
+    @include breakpoint-down(lg) {
+      grid-template-columns: repeat(3, 32.5%);
+    }
+    @include breakpoint-down(xs) {
+      display: inherit;
+    }
+  }
+  .platformBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 64px;
+    .btn {
+      width: 288px;
+    }
+  }
+
+  .swiper-wrapper {
+    padding: 0 10px 10px 0;
+    .swiper-slide {
+      //padding-bottom: 20px;
+      //padding-right: 10px;
+      @include breakpoint-down(lg) {
+        padding-right: 0;
+      }
+      @each $name, $color in $colors {
+        .tiles#{$name} {
+          background: $color;
+          padding: 30px;
+          @include breakpoint-down(xs) {
+            margin-bottom: 1rem;
+          }
+          img {
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+            margin-bottom: 1rem;
+          }
+          .title {
+            font-size: 20px;
+            line-height: 30px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-align: left;
+          }
+          .discription {
+            font-size: 16px;
+            line-height: 28px;
+            font-weight: 400;
+          }
+          &:hover {
+            box-shadow: 4px 4px 0px 0px #cdcdcd;
+            transition: all 0.5s ease;
+            cursor: pointer;
+          }
+          &:hover img {
+            transform: rotateY(180deg);
+            transition: all 0.5s ease;
+            cursor: pointer;
+            overflow: visible;
+          }
+        }
+      }
+    }
+  }
+}

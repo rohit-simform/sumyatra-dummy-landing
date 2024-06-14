@@ -1,0 +1,61 @@
+@use '../../../assets/styles/breakpoints' as *;
+.tab-footer {
+  display: flex;
+  justify-content: center;
+  @include breakpoint-up(lg){
+    margin-top: 24px;
+  }
+}
+.tab-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+.tab-header {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--white);
+  .tab-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+    justify-content: flex-start;
+    @include breakpoint-up(lg){
+      gap:56px;
+    }
+  }
+}
+.tab-body {
+  .row {
+   @include breakpoint-up(lg){
+    row-gap: 40px;}
+  }
+}
+.tab-button {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+  text-transform: capitalize;
+  background-color: transparent;
+  color: var(--bg-clr-2);
+  border: none;
+  svg {
+    color: var(--white);
+    transition: all 0.3s ease-in-out;
+  }
+  &.active {
+    color: var(--secondary-6);
+    svg {
+      color: var(--secondary-6);
+    }
+  }
+}
