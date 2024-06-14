@@ -74,11 +74,15 @@ $colors: (
             font-weight: 600;
             margin-bottom: 10px;
             text-align: left;
+            height: 55px;
+            overflow: hidden;
           }
           .discription {
             font-size: 16px;
             line-height: 28px;
             font-weight: 400;
+            height: 90px;
+            overflow: hidden;
           }
           &:hover {
             box-shadow: 4px 4px 0px 0px #cdcdcd;
