@@ -1,5 +1,5 @@
 "use client"
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useCallback, useState } from "react";
 import "./ContactUs.scss";
 import Button from "../Button/Button";
 import { JOIN_WAIT_FORM_API } from "../../const/paths";
@@ -44,15 +44,14 @@ export default function ContactUs({ navRef }: any) {
 
       const res = await resp.json();
       setSentMailStatus(true)
-    } catch (error) {
-    } finally {
       setFormData({
         name: "",
         email: "",
         subject: "",
         message: "",
       });
-    }
+    } catch (error) {
+    } 
   };
 
   const handleChange = (
@@ -98,6 +97,10 @@ export default function ContactUs({ navRef }: any) {
     }
   };
 
+  const handleReset = useCallback(() => {
+    setSentMailStatus(false)
+  },[])
+
   return (
     <section className="contactWrapper" id="waitlist" ref={navRef}>
       <div className="container">
@@ -122,6 +125,7 @@ export default function ContactUs({ navRef }: any) {
                     type="text"
                     name="name"
                     value={formData.name}
+                    maxLength={25}
                     placeholder="Enter your name"
                   ></input>
                   {errors.name && <span className="error">{errors.name}</span>}
@@ -134,6 +138,7 @@ export default function ContactUs({ navRef }: any) {
                     type="email"
                     name="email"
                     value={formData.email}
+                    maxLength={50}
                     placeholder="Enter your email"
                   ></input>
                   {errors.email && (
@@ -148,6 +153,7 @@ export default function ContactUs({ navRef }: any) {
                     type="text"
                     name="subject"
                     value={formData.subject}
+                    maxLength={90}
                     placeholder="Add me to the Wait-List..."
                   ></input>
                   {errors.subject && (
@@ -160,6 +166,7 @@ export default function ContactUs({ navRef }: any) {
                     className="formGroup__textarea"
                     onChange={handleChange}
                     name="message"
+                    maxLength={300}
                     value={formData.message}
                     placeholder="Write your message"
                   ></textarea>
@@ -185,7 +192,7 @@ export default function ContactUs({ navRef }: any) {
                   We&apos;re excited to connect with you!
                 </p>
                 <div className="submitAction__btn">
-                  <Button>Done</Button>
+                  <Button onClick={handleReset}>Done</Button>
                 </div>
               </div>
             )}
