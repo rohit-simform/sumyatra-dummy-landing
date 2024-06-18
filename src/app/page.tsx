@@ -17,7 +17,7 @@ const handelNavigation = () => {
       <Banner handelNavigation={handelNavigation}/>
       <Platform handelNavigation={handelNavigation}/>
       <ContactUs navRef={navRef}/>
-      <Footer />
+      <Footer handelNavigation={handelNavigation}/>
     </>
  
   );

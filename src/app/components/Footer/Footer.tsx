@@ -4,7 +4,7 @@ import { Images } from "../../../ThemeConfig/Images";
 import Link from 'next/link';
 import CurrentYear from '../CurrentYear/CurrentYear';
 
-export default function Footer() {
+export default function Footer({handelNavigation}) {
 
   return (
     <footer className="footerWrapper">
@@ -13,13 +13,13 @@ export default function Footer() {
           <Image src={Images.logo} alt="Footer Logo" />
           <ul className="footerLinks">
             <li>
-              <Link href="">Overview</Link>
+              <p>Overview</p>
             </li>
             <li>
-              <Link href="">Join Wait-List</Link>
+              <p onClick={() => handelNavigation()}>Join Wait-List</p>
             </li>
             <li>
-              <Link href="">Privacy Policy</Link>
+              <p>Privacy Policy</p>
             </li>
           </ul>
         </div>

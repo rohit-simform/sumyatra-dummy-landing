@@ -18,5 +18,4 @@ export const Images = {
   platformSeven: require('../../public/Assets/Images/platformSeven.jpg'),
   platformEight: require('../../public/Assets/Images/platformEight.jpg'),
   platformNine: require('../../public/Assets/Images/platformNine.jpg'),
-  platformTen: require('../../public/Assets/Images/platformTen.jpg'),
 };  

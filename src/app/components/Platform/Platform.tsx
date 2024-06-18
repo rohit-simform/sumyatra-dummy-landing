@@ -20,14 +20,15 @@ export default function Platform({ handelNavigation }: any) {
         <Swiper
           //spaceBetween={24}
           //slidesPerView={3}
+          loop={true}
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
           autoplay={{
-            delay: 2500, // Time between slide transitions
+            delay: 2500,                // Time between slide transitions
             disableOnInteraction: false, // Whether to disable autoplay after user interactions
-            pauseOnMouseEnter: true, // Pause autoplay on mouse enter
-            stopOnLastSlide: false, // Stop autoplay on the last slide
-            reverseDirection: false, // Run autoplay in reverse direction
+            pauseOnMouseEnter: true,    // Pause autoplay on mouse enter
+            stopOnLastSlide: false,     // Stop autoplay on the last slide
+            reverseDirection: false     // Run autoplay in reverse direction
           }}
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
