@@ -5,7 +5,7 @@ import CurrentYear from '../CurrentYear/CurrentYear';
 import { useState } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
-export default function Footer({handelNavigation}) {
+export default function Footer({handelNavigation}: any) {
   const[showTost, setShowTost] = useState(false)
   return (
     <footer className="footerWrapper">
