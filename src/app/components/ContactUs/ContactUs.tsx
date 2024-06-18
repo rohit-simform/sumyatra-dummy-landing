@@ -109,8 +109,8 @@ export default function ContactUs({ navRef }: any) {
             <h2 className="title">Join the Waitlist or Drop us a message</h2>
             <p className="details">Engage with us early: </p>
             <ul className="list">
-              <li>Schedule a brief demo</li>
-              <li>Schedule a private preview </li>
+              <li>Schedule a private preview</li>
+              <li>Tell us about your partnership challenges</li>
               <li>Join our newsletters for regular updates</li>
             </ul>
           </div>

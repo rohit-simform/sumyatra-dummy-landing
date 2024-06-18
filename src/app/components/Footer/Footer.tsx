@@ -25,7 +25,7 @@ export default function Footer({handelNavigation}) {
           </ul>
         </div>
         <div className="copyrightText">&#169; {<CurrentYear />} Sumyatra. All rights reserved.</div>
-        {/*{showTost && (<div className="tostNotification">Something went wrong  <span className="clostTost" onClick={() => setShowTost(false)}><AiOutlineCloseCircle /></span></div>)}*/}
+        {/* {showTost && (<div className="tostNotification">Something went wrong  <span className="clostTost" onClick={() => setShowTost(false)}><AiOutlineCloseCircle /></span></div>)} */}
       </div>
      
     </footer>

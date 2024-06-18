@@ -50,9 +50,9 @@
       overflow: hidden;
       white-space: nowrap;
       padding-bottom: 16px;
-      animation:
-        typing 3.5s steps(30, end),
-        blink-caret 0.75s step-end infinite;
+      // animation:
+      //   typing 3.5s steps(30, end),
+      //   blink-caret 0.75s step-end infinite;
 
       .title {
         text-align: center;
@@ -80,7 +80,7 @@
             position: absolute;
             right: 0;
             bottom: -15px;
-            animation: textAppear 6s;
+            animation: textAppear 1s;
           }
         }
       }
@@ -92,7 +92,7 @@
       text-align: center;
       width: 80%;
       margin: 0 auto;
-      animation: textAppear 8s;
+      animation: textAppear 2s;
     }
     .btn {
       margin-top: 40px;
