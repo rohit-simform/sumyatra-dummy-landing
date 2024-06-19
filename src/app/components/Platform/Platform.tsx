@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import "./Platform.scss";
 import { Images } from "../../../ThemeConfig/Images";
 import Button from "../Button/Button";
@@ -8,9 +7,9 @@ import "swiper/css";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
 
-export default function Platform({ handelNavigation }: any) {
+export default function Platform({ handelNavigation, platformRef }: any) {
   return (
-    <section className="platformWrapper" id="partner">
+    <section className="platformWrapper" ref={platformRef}>
       {/* <Image src={Images.dotsbg} alt="patentOne"  className="patentOne"/> */}
       <div className="container">
         <h2 className="title">

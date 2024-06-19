@@ -11,13 +11,19 @@ const navRef = useRef<HTMLTableElement>();
 const handelNavigation = () => {
     navRef.current?.scrollIntoView({behavior : 'smooth'})
 }
+const platformRef= useRef<HTMLTableElement>();
+const handelPlatform = () => {
+  platformRef.current?.scrollIntoView({behavior : 'smooth'})
+}
+
+
   return (
     <>
       <Navigation handelNavigation={handelNavigation}/>
       <Banner handelNavigation={handelNavigation}/>
-      <Platform handelNavigation={handelNavigation}/>
+      <Platform platformRef={platformRef}/>
       <ContactUs navRef={navRef}/>
-      <Footer handelNavigation={handelNavigation}/>
+      <Footer handelPlatform={handelPlatform} handelNavigation={handelNavigation}/>
     </>
  
   );

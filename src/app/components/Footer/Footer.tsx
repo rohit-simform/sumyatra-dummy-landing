@@ -7,7 +7,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 
-export default function Footer({handelNavigation}: any) {
+export default function Footer({handelNavigation, handelPlatform}: any) {
   const [open, setOpen] = useState(false);
 
   const onOpenModal = () => setOpen(true);
@@ -20,7 +20,7 @@ export default function Footer({handelNavigation}: any) {
           <Image src={Images.logo} alt="Footer Logo" />
           <ul className="footerLinks">
             <li>
-              <p>Overview</p>
+              <p onClick={() => handelPlatform()}>Overview</p>
             </li>
             <li>
               <p onClick={() => handelNavigation()}>Join Wait-List</p>
