@@ -1,8 +1,9 @@
-"use client"
+"use client";
 import React, { ChangeEvent, FormEvent, useCallback, useState } from "react";
 import "./ContactUs.scss";
 import Button from "../Button/Button";
 import { JOIN_WAIT_FORM_API } from "../../const/paths";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 interface FormData {
   name: string;
@@ -17,8 +18,17 @@ interface Errors {
   subject?: string;
 }
 
+interface ErrToastPropType {
+  show?: boolean;
+  msg?: string;
+}
+
 export default function ContactUs({ navRef }: any) {
   const [sentMailStatus, setSentMailStatus] = useState(false);
+  const [displayErrToast, setDisplayErrorToast] = useState<ErrToastPropType>({
+    show: false,
+    msg: "",
+  });
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -31,6 +41,13 @@ export default function ContactUs({ navRef }: any) {
     subject: "",
   });
 
+  const closeErrorToast = useCallback(() => {
+    setDisplayErrorToast({
+      show: false,
+      msg: "",
+    });
+  }, []);
+
   const sendMail = async (payload: FormData) => {
     try {
       const resp = await fetch(JOIN_WAIT_FORM_API, {
@@ -42,16 +59,30 @@ export default function ContactUs({ navRef }: any) {
         credentials: "omit",
       });
 
+      if (!resp.ok) {
+        // If the response status is not OK, throw an error
+        const errorData = await resp.json();
+        throw new Error(
+          errorData?.message || "Something went wrong. Please try again."
+        );
+      }
+
       const res = await resp.json();
-      setSentMailStatus(true)
+      setSentMailStatus(true);
       setFormData({
         name: "",
         email: "",
         subject: "",
         message: "",
       });
-    } catch (error) {
-    } 
+    } catch (error: any) {
+      setDisplayErrorToast({
+        show: true,
+        msg: error?.message,
+      });
+
+      setTimeout(() => closeErrorToast(), 8000);
+    }
   };
 
   const handleChange = (
@@ -60,8 +91,8 @@ export default function ContactUs({ navRef }: any) {
     const { name, value }: any = e.target;
     setErrors({
       ...errors,
-      [name]: ''
-    })
+      [name]: "",
+    });
     setFormData({
       ...formData,
       [name]: value,
@@ -98,8 +129,8 @@ export default function ContactUs({ navRef }: any) {
   };
 
   const handleReset = useCallback(() => {
-    setSentMailStatus(false)
-  },[])
+    setSentMailStatus(false);
+  }, []);
 
   return (
     <section className="contactWrapper" id="waitlist" ref={navRef}>
@@ -181,7 +212,8 @@ export default function ContactUs({ navRef }: any) {
                   Thank you for reaching out!
                 </h2>
                 <p className="submitAction__discription">
-                  We appreciate your interest. Here&apos;s what you can expect next:
+                  We appreciate your interest. Here&apos;s what you can expect
+                  next:
                 </p>
                 <ul className="submitAction__list">
                   <li>We&apos;ll contact you soon to confirm the details.</li>
@@ -199,6 +231,14 @@ export default function ContactUs({ navRef }: any) {
           </div>
         </div>
       </div>
+      {displayErrToast?.show && (
+        <div className="tostNotification">
+          {displayErrToast?.msg || "Something went wrong."}
+          <span className="clostTost" onClick={closeErrorToast}>
+            <AiOutlineCloseCircle />
+          </span>
+        </div>
+      )}
     </section>
   );
 }

@@ -189,4 +189,26 @@
     }
   }
 
+  .tostNotification {
+    position: fixed;
+    z-index: 999;
+    top: 0px;
+    left: 0;
+    right: 0;
+    background-color: #bae5f8;
+    color: #000;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .clostTost {
+      svg {
+        width: 24px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
 }
