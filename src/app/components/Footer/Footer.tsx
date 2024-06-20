@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { Images } from "../../../ThemeConfig/Images";
 import CurrentYear from '../CurrentYear/CurrentYear';
 import { useState } from "react";
-import { AiOutlineCloseCircle } from "react-icons/ai";
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 

@@ -21,7 +21,7 @@ const handelPlatform = () => {
     <>
       <Navigation handelNavigation={handelNavigation}/>
       <Banner handelNavigation={handelNavigation}/>
-      <Platform platformRef={platformRef}/>
+      <Platform platformRef={platformRef} handelNavigation={handelNavigation}/>
       <ContactUs navRef={navRef}/>
       <Footer handelPlatform={handelPlatform} handelNavigation={handelNavigation}/>
     </>
