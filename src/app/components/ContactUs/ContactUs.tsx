@@ -81,7 +81,7 @@ export default function ContactUs({ navRef }: any) {
         msg: error?.message,
       });
 
-      setTimeout(() => closeErrorToast(), 50000);
+      setTimeout(() => closeErrorToast(), 8000);
     }
   };
 
